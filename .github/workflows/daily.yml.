@@ -1,0 +1,14 @@
+name: Daily Update
+on:
+  schedule:
+    - cron: '0 12 * * *'  # Runs daily at 12 PM UTC
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run Script
+      env:
+        YOUTUBE_API_KEY: ${{ secrets.AIzaSyA_fpNUtdPkML8AyeXH0dRV9bxcXXfGwqw }}
+        GITHUB_TOKEN: ${{ secrets.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 }}
+      run: python blog.py
